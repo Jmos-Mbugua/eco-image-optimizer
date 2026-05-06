@@ -1,0 +1,248 @@
+:root {
+  color: #162018;
+  background: #f4f7f1;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #d5decf;
+}
+
+.intro h1 {
+  margin: 4px 0 10px;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.intro p {
+  max-width: 660px;
+  margin: 0;
+  color: #52604d;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  color: #2f6c3a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.upload-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.upload-box {
+  position: relative;
+  display: grid;
+  min-height: 64px;
+  place-items: center;
+  padding: 16px;
+  border: 2px dashed #7a9872;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #234b2c;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  border-color: #2f6c3a;
+  background: #fbfdf9;
+}
+
+.upload-box input {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.helper-text,
+.status {
+  color: #52604d;
+  line-height: 1.5;
+}
+
+.helper-text code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #e7eee1;
+  color: #234b2c;
+}
+
+.status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-weight: 700;
+}
+
+.error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #a12b2b;
+  font-weight: 700;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.preview-card {
+  overflow: hidden;
+  border: 1px solid #d5decf;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8dd;
+}
+
+.preview-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.preview-heading span {
+  color: #52604d;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.image-frame {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  background:
+    linear-gradient(45deg, #edf2e8 25%, transparent 25%),
+    linear-gradient(-45deg, #edf2e8 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #edf2e8 75%),
+    linear-gradient(-45deg, transparent 75%, #edf2e8 75%);
+  background-color: #f9fbf7;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+  background-size: 16px 16px;
+}
+
+.image-frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.image-frame p {
+  max-width: 230px;
+  margin: 0;
+  color: #66715f;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.metric {
+  min-height: 112px;
+  padding: 16px;
+  border: 1px solid #d5decf;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.metric span {
+  display: block;
+  min-height: 42px;
+  color: #52604d;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 10px;
+  color: #173d20;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    width: min(100% - 24px, 680px);
+    padding: 32px 0;
+  }
+
+  .intro,
+  .upload-panel,
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .image-frame {
+    min-height: 260px;
+  }
+}
