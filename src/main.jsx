@@ -159,9 +159,6 @@ function App() {
           <span>Choose one image</span>
           <input type="file" accept="image/*" onChange={handleFileChange} />
         </label>
-        <div className="helper-text">
-          Uses unsigned Cloudinary uploads with <code>f_auto,q_auto</code>.
-        </div>
         {status !== "idle" && (
           <p className="status" role="status">
             {status === "uploading" && "Uploading to Cloudinary..."}
